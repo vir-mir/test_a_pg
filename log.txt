@@ -1,0 +1,2 @@
+thread_async time for run_ainsert / 15.54 sec
+corutine_async time for run_ainsert / 14.25 sec
