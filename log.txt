@@ -1,2 +1,10 @@
-thread_async time for run_ainsert / 15.54 sec
-corutine_async time for run_ainsert / 14.25 sec
+8 CPU
+Run Test thread vs corutine
+python -m test1.thread_async time for run_ainsert / 16.0 sec
+python -m test1.corutine_async time for run_ainsert / 14.92 sec
+
+
+One CPU
+Run Test thread vs corutine
+python -m test1.thread_async time for run_ainsert / 15.4 sec
+python -m test1.corutine_async time for run_ainsert / 17.09 sec
