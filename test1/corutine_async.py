@@ -3,14 +3,13 @@ import asyncio
 import psycopg2
 
 import settings
-from db import create_db
-from utils import log_time
+from utils import get_running_loop
 
 DB_NAME = 'corutine_async'
 
 
 def ready(conn, waiter):
-    loop = asyncio.get_running_loop()
+    loop = get_running_loop()
     fileno = conn.fileno()
     state = conn.poll()
     if state == psycopg2.extensions.POLL_OK:
@@ -27,7 +26,7 @@ def ready(conn, waiter):
 
 
 async def wait(conn):
-    waiter = asyncio.get_running_loop().create_future()
+    waiter = get_running_loop().create_future()
     ready(conn, waiter)
     await asyncio.wait_for(waiter, 100)
 
@@ -51,7 +50,6 @@ async def ainsert(data_range, tid, sleep):
     aconn.close()
 
 
-@log_time
 def run_ainsert():
     loop = asyncio.get_event_loop()
     tasks = [
@@ -59,8 +57,6 @@ def run_ainsert():
         loop.create_task(ainsert(range(1, 9999), 2, 0.2)),
     ]
     loop.run_until_complete(asyncio.wait(tasks))
-    loop.close()
 
 
-with create_db(DB_NAME):
-    run_ainsert()
+run_ainsert()

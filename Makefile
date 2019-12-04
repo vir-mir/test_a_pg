@@ -2,8 +2,19 @@
 test_thread_vs_corutine:
 	@echo -n "Run Test thread vs corutine"
 	@echo ""
-	python -m test1.thread_async
-	python -m test1.corutine_async
+	python -m test1.__init__
+
+.PHONY: test_aiopg_vs_asyncpg
+test_aiopg_vs_asyncpg:
+	@echo -n "Run Test aioppg vs asyncpg"
+	@echo ""
+	python -m test2.__init__
+
+.PHONY: test_aiopg_vs_asyncpg_2
+test_aiopg_vs_asyncpg_2:
+	@echo -n "Run Test aioppg vs asyncpg 2"
+	@echo ""
+	python -m test3.__init__
 
 .PHONY: off_cpu
 off_cpu:

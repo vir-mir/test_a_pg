@@ -1,11 +1,9 @@
-import select
 from threading import Thread
 
 import psycopg2
+import select
 
 import settings
-from db import create_db
-from utils import log_time
 
 DB_NAME = 'thread_async'
 
@@ -43,7 +41,6 @@ def ainsert(data_range, tid, sleep):
     aconn.close()
 
 
-@log_time
 def run_ainsert():
     t1 = Thread(target=ainsert, args=(range(1, 9999), 1, 0.1))
     t2 = Thread(target=ainsert, args=(range(1, 9999), 2, 0.2))
@@ -54,5 +51,5 @@ def run_ainsert():
     t1.join()
     t2.join()
 
-with create_db(DB_NAME):
-    run_ainsert()
+
+run_ainsert()

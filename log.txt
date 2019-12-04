@@ -1,10 +1,23 @@
-8 CPU
-Run Test thread vs corutine
-python -m test1.thread_async time for run_ainsert / 16.0 sec
-python -m test1.corutine_async time for run_ainsert / 14.92 sec
+8 CPU python3.8
+thread: 162.49 sec
+corutine: 154.94 sec
 
+8 CPU python3.6
+thread: 166.98 sec
+corutine: 152.43 sec
 
-One CPU
-Run Test thread vs corutine
-python -m test1.thread_async time for run_ainsert / 15.4 sec
-python -m test1.corutine_async time for run_ainsert / 17.09 sec
+One CPU python3.8
+thread: 152.10 sec
+corutine: 140.21 sec
+
+One CPU python3.6
+thread: 153.336 sec
+corutine: 138.12 sec
+
+Run Test aioppg vs asyncpg
+asyncpg: 10.09 sec
+aiopg: 16.12 sec
+
+Run Test aioppg vs asyncpg 2
+asyncpg: 10.09 sec
+aiopg: 0.64 sec
