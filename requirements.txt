@@ -2,5 +2,5 @@ psycopg2==2.8.4
 aiopg==1.0.0
 asyncpg==0.20.0
 python-dotenv==0.10.3
-ipython==7.10.1
+ipython==7.16.3
 
